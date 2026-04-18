@@ -1,0 +1,40 @@
+配置 Elasticsearch 索引
+路径：PS D:\softwares\biancheng_exe\elasticsearch-8.10.0>
+ .\bin\elasticsearch.bat
+
+确认自己的 Redis 是启动的
+路径：PS D:\softwares\biancheng\Redis-x64-3.2.100>
+命令： .\redis-server.exe .\redis.windows.conf
+
+确认自己的 MinIO 是启动的
+路径：PS D:\softwares\biancheng> 
+命令：powershell
+$env:MINIO_ROOT_USER="minioadmin"
+$env:MINIO_ROOT_PASSWORD="minioadmin123"
+.\minio.exe server .\minio-data --address ":9000" --console-address ":9001"
+
+确认 Kafka 是启动的
+路径：cd D:\data\kafka_2.13-3.9.0
+命令：.\bin\windows\kafka-server-start.bat .\config\kraft\server.properties
+
+###############################
+可能本地Mysql会启动占用端口号
+net stop MySQL
+
+使用Docker启动,右键管理员身份运行
+然后powershell
+wsl
+cd /
+cd /data
+docker compose up -d
+账号密码都在这个文件中
+"D:\project\java_project\PaiSmart-main\docs\docker-compose.yaml"
+先双击启动docker
+
+sudo docker compose up -d
+
+停止
+hu@LAPTOP-LD4SB4LK:/data$ sudo docker compose stop
+
+# 再次启动
+sudo docker compose start
